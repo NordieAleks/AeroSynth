@@ -13,8 +13,8 @@ jobs:
       - name: Check out this repository
         uses: actions/checkout@v4
 
-      - name: Clone JUCE
-        run: git clone --depth 1 https://github.com/juce-framework/JUCE.git
+      - name: Clone JUCE (including its VST3 SDK submodule)
+        run: git clone --depth 1 --recurse-submodules https://github.com/juce-framework/JUCE.git
 
       - name: Configure with CMake
         run: cmake -B build -DCMAKE_BUILD_TYPE=Release
