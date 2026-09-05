@@ -156,8 +156,7 @@ private:
         // Higher fundamental frequency -> fewer harmonics allowed -> higher mip index.
         const float nyquist = (float) sr * 0.5f;
         const float maxHarmonics = nyquist / juce::jmax(f, 1.0f);
-        int level = (int) juce::jlimit(0.0, (double) (mipLevels - 1),
-                                        std::log2(juce::jmax(1.0f, (float) frameSize / (2.0f * maxHarmonics))));
+        int level = (int) juce::jlimit(0.0, (double) (mipLevels - 1), (double) std::log2(juce::jmax(1.0f, (float) frameSize / (2.0f * maxHarmonics))));
         return level;
     }
 
